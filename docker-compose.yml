@@ -10,7 +10,7 @@ services:
     networks:
       - backend
     ports:
-      - 3001:3000
+      - 4000:3000
     env_file:
       - ./backend/.env
     depends_on:
@@ -25,7 +25,7 @@ services:
     networks:
       - frontend
     ports:
-      - 3002:80
+      - 8081:80
 
   postgres:
     container_name: postgres-container
@@ -43,7 +43,7 @@ services:
     networks:
       - backend
     ports:
-      - 8081:8080
+      - 8082:8080
     depends_on:
       - postgres
 
