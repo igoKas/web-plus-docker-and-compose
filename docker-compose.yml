@@ -7,6 +7,7 @@ services:
       context: backend
       dockerfile: Dockerfile
     image: backend-image
+    restart: on-failure
     networks:
       - backend
     ports:
@@ -22,6 +23,7 @@ services:
       context: frontend
       dockerfile: Dockerfile
     image: frontend-image
+    restart: on-failure
     networks:
       - frontend
     ports:
@@ -30,6 +32,7 @@ services:
   postgres:
     container_name: postgres-container
     image: postgres
+    restart: on-failure
     networks:
       - backend
     volumes:
@@ -40,6 +43,7 @@ services:
   adminer:
     container_name: adminer-container
     image: adminer
+    restart: on-failure
     networks:
       - backend
     ports:
