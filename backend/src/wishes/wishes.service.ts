@@ -39,7 +39,7 @@ export class WishesService {
   async copy(wishId: number, userId: number) {
     const copiedWish = await this.wishesRepository.findOneOrFail({
       where: { id: wishId },
-      select: { name: true, description: true, link: true, image: true, price: true, copied: true },
+      relations: { owner: true }
     });
     if (userId === copiedWish.owner.id) throw new BadRequestException('Нельзя копировать свои подарки');
     copiedWish.copied++;
