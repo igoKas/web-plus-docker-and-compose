@@ -13,7 +13,7 @@ import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 @Module({
   imports: [
     ThrottlerModule.forRoot([{
-      limit: 10,
+      limit: 100,
       ttl: 60000,
     }]),
     ConfigModule.forRoot({

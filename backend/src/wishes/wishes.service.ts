@@ -43,6 +43,7 @@ export class WishesService {
     });
     if (userId === copiedWish.owner.id) throw new BadRequestException('Нельзя копировать свои подарки');
     copiedWish.copied++;
-    return this.wishesRepository.save({ ...copiedWish, owner: { id: userId } });
+    const { id, ...newWish } = copiedWish;
+    return this.wishesRepository.save({ ...newWish, owner: { id: userId } });
   }
 }
